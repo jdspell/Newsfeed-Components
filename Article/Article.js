@@ -31,5 +31,67 @@ NodeList and create a new instance of Article by passing in each article as a pa
 
 */
 
+
+//CREATE COMPONENT STRETCH
+{/* <div class="article">
+        <h2>Lambda School Students: "We're the best!"</h2>
+        <p class="date">Nov 5th, 2017</p>
+
+        <p>Dagobah hutt jawa leia calamari ventress skywalker yoda. Binks wicket hutt coruscant sidious
+        naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
+        han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
+        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.</p>
+        <span class='expandButton'></span>
+      </div> */}
+
+
+info = {
+  "heading": "A Heading",
+  "date": "Jan 30th, 2019",
+  "content": ["Dagobah hutt jawa leia calamari ventress skywalker yoda.", "Dagobah hutt jawa leia calamari ventress skywalker yoda."] 
+}
+
+function createArticle(articleData) {
+  //creates an article element
+  let article = document.createElement("div");
+  article.setAttribute("class", "article");
+
+  //creates a heading and appends text to it. Then adds it to the article.
+  let heading = document.createElement("h2");
+  let nodeOne = document.createTextNode(articleData.heading);
+  heading.appendChild(nodeOne);
+  article.appendChild(heading);
+
+  let date = document.createElement("p");
+  date.setAttribute("class", "date");
+  let nodeTwo = document.createTextNode(articleData.date);
+  date.appendChild(nodeTwo);
+  article.appendChild(date);
+
+  articleData.content.forEach(paragraph => {
+    let para = document.createElement("p");
+    let textNode = document.createTextNode("paragraph");
+    para.appendChild(textNode);
+    article.appendChild(para);
+  });
+
+  let button = document.createElement("span");
+  button.setAttribute("class", "expandButton");
+  article.appendChild(button);
+
+
+  // function elementCreator(nameForElement, typeOfElement, ...attributes){
+  //   if(attributes == 0){
+
+  //   }
+  //   article.appendChild(nameForElement);
+  // }
+
+  let articles = document.querySelector(".articles");
+  articles.appendChild(article);
+}
+
+createArticle(info);
+
 let articles = document.querySelectorAll(".article");
 articles.forEach(article => new Article(article));

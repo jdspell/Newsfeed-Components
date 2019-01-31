@@ -10,3 +10,22 @@ const menu = document.querySelector(".menu");
 const menuButton = document.querySelector(".menu-button");
 // Using your menuButton reference, add a click handler that calls toggleMenu
 menuButton.addEventListener("click", toggleMenu);
+
+
+//JQUERY STRETCH
+$(document).ready(function(){
+
+  $(".menu-button").click(function(event){
+    $(".menu").animate({width: 'toggle'});
+
+    event.stopPropagation();
+  });
+
+  $(document.body).click(function(){
+    $(".menu").hide();
+  });
+  
+
+});
+
+
